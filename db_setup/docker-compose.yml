@@ -1,0 +1,17 @@
+# PostgreSQL 16 + pgvector — 설치만. 스키마/테이블 없음.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: sbiz-pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres   # 원하는 걸로 변경
+      TZ: Asia/Seoul
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
